@@ -1,6 +1,6 @@
 # V4 per-task results (Terminal-Bench 2.0)
 
-73 PASS / 15 FAIL / 1 ERR = 82.0% of 89 tasks
+73 PASS / 15 FAIL / 1 ERR = 82.02% of 89 tasks (73/89 = 0.8202247…)
 
 | Task | Result |
 | --- | --- |

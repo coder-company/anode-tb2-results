@@ -8,7 +8,7 @@ These artifacts are published for transparency. The official [Terminal-Bench 2.0
 
 | Run | Pass | Fail | Err | Pass rate (of 89) |
 | --- | ---: | ---: | ---: | ---: |
-| **v4-tb2-2026-06-02** | **73** | 15 | 1 | **82.0%** |
+| **v4-tb2-2026-06-02** | **73** | 15 | 1 | **82.02%** (73/89) |
 
 V4 is anode's best complete run on Terminal-Bench 2.0 (89 tasks). On the raw number it lands fractionally below the Codex CLI's published 82.2% (and a few points under Capy at 83.1%), and it is **not eligible for the new leaderboard** anyway because it used `--agent-timeout-multiplier 2.0` rather than the now-required `1.0`, and ran with `k=1` trial per task rather than the new minimum of `k=5`.
 
@@ -86,7 +86,7 @@ When the new process opens, we plan to run a fully compliant submission. This re
 
 ```
 runs/
-  v4-tb2-2026-06-02/                # 73/89 = 82.0%
+  v4-tb2-2026-06-02/                # 73/89 = 82.02%
     result.json                     # Harbor aggregate result for the run
     <task>__<trialid>/
       result.json                   # per-trial result (status, reward, timings)
