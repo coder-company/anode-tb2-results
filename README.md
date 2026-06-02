@@ -95,7 +95,6 @@ README.md                           # this file
 ## What is NOT in this repository
 
 - **Agent trajectories** (`agent/trajectory.json`, `agent/anode-stream.ndjson`, `agent/anode-stderr.log`) — these contain the full model conversation including occasional file contents from the task workdir, which would expose verifier solutions when read. They are retained privately and will be included in the eventual leaderboard submission per the ATIF requirement.
-- **Authentication credentials** — no OAuth tokens, no API keys, no account UUIDs are present. The repository has been scanned for `Bearer ey…`, `sk-…`, JWT-shaped tokens, `access_token`, `refresh_token`, `client_secret`, and the user's `chatgpt-account-id` — all clean.
 - **Harbor task corpus** — task definitions and test code are not redistributed here. See [harborframework/terminal-bench-2.0](https://huggingface.co/datasets/harborframework/terminal-bench-2.0) for the upstream dataset.
 
 ## License
