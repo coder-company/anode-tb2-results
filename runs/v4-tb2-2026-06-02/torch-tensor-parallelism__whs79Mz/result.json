@@ -1,0 +1,115 @@
+{
+    "id": "09af7d5b-0d48-4b3b-9b09-bfc528f73a60",
+    "task_name": "terminal-bench/torch-tensor-parallelism",
+    "trial_name": "torch-tensor-parallelism__whs79Mz",
+    "trial_uri": "file:///home/staticpayload/tb-bench/anode-fullrun-final/2026-06-02__06-03-46/torch-tensor-parallelism__whs79Mz",
+    "task_id": {
+        "org": "terminal-bench",
+        "name": "torch-tensor-parallelism",
+        "ref": "sha256:6446c8219da1b2cde0d6b248b3a6cd2403c22ee2302c280e002e7b6c41f42b1b"
+    },
+    "source": "terminal-bench/terminal-bench-2",
+    "task_checksum": "009f90ef25202cae76f24f9946c0dde971e30fefc1991a8d8be25a9e25f27a82",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "terminal-bench/torch-tensor-parallelism",
+            "ref": "sha256:6446c8219da1b2cde0d6b248b3a6cd2403c22ee2302c280e002e7b6c41f42b1b",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench/terminal-bench-2"
+        },
+        "trial_name": "torch-tensor-parallelism__whs79Mz",
+        "trials_dir": "anode-fullrun-final/2026-06-02__06-03-46",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": 2.0,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": null,
+            "import_path": "anode_adapter.anode_agent:Anode",
+            "model_name": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {},
+            "env": {
+                "ANODE_AUTH_JSON_PATH": "/hom****son",
+                "ANODE_CONFIG_JSON_PATH": "/home/staticpayload/.config/anode/config.json",
+                "ANODE_BINARY_PATH": "/home/staticpayload/.local/bin/anode",
+                "ANODE_AGENT_TIMEOUT_SEC": "2400"
+            },
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": false,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "env": {},
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "env": {},
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "9d45a997-1f6c-4725-8aa7-f110389bd533"
+    },
+    "agent_info": {
+        "name": "anode",
+        "version": "version dev",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": 397078,
+        "n_cache_tokens": 221696,
+        "n_output_tokens": 43524,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-06-02T07:06:03.958923Z",
+    "finished_at": "2026-06-02T07:32:53.750310Z",
+    "environment_setup": {
+        "started_at": "2026-06-02T07:06:03.959992Z",
+        "finished_at": "2026-06-02T07:06:05.790243Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-06-02T07:06:05.790275Z",
+        "finished_at": "2026-06-02T07:06:16.874572Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-06-02T07:06:16.874632Z",
+        "finished_at": "2026-06-02T07:30:51.859718Z"
+    },
+    "verifier": {
+        "started_at": "2026-06-02T07:30:52.295567Z",
+        "finished_at": "2026-06-02T07:32:41.040603Z"
+    },
+    "step_results": null
+}

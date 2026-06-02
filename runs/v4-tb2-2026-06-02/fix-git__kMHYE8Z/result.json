@@ -1,0 +1,115 @@
+{
+    "id": "792ee517-98c4-4609-9df2-d5fcbced0a67",
+    "task_name": "terminal-bench/fix-git",
+    "trial_name": "fix-git__kMHYE8Z",
+    "trial_uri": "file:///home/staticpayload/tb-bench/anode-fullrun-final/2026-06-02__06-03-46/fix-git__kMHYE8Z",
+    "task_id": {
+        "org": "terminal-bench",
+        "name": "fix-git",
+        "ref": "sha256:66be7179f07f1aa8f0d60f88800a883a68c1ffb7a349aae76aa60fa679485473"
+    },
+    "source": "terminal-bench/terminal-bench-2",
+    "task_checksum": "e17451b4a53685be804467ab24e53c4f5816bf6a972ff6434ec20cc7d246048e",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "terminal-bench/fix-git",
+            "ref": "sha256:66be7179f07f1aa8f0d60f88800a883a68c1ffb7a349aae76aa60fa679485473",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench/terminal-bench-2"
+        },
+        "trial_name": "fix-git__kMHYE8Z",
+        "trials_dir": "anode-fullrun-final/2026-06-02__06-03-46",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": 2.0,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": null,
+            "import_path": "anode_adapter.anode_agent:Anode",
+            "model_name": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {},
+            "env": {
+                "ANODE_AUTH_JSON_PATH": "/hom****son",
+                "ANODE_CONFIG_JSON_PATH": "/home/staticpayload/.config/anode/config.json",
+                "ANODE_BINARY_PATH": "/home/staticpayload/.local/bin/anode",
+                "ANODE_AGENT_TIMEOUT_SEC": "2400"
+            },
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": false,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "env": {},
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "env": {},
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "9d45a997-1f6c-4725-8aa7-f110389bd533"
+    },
+    "agent_info": {
+        "name": "anode",
+        "version": "version dev",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": 529034,
+        "n_cache_tokens": 273408,
+        "n_output_tokens": 9712,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-06-02T06:43:01.687055Z",
+    "finished_at": "2026-06-02T06:48:21.411782Z",
+    "environment_setup": {
+        "started_at": "2026-06-02T06:43:01.688831Z",
+        "finished_at": "2026-06-02T06:43:03.446295Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-06-02T06:43:03.446322Z",
+        "finished_at": "2026-06-02T06:43:08.943505Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-06-02T06:43:08.943596Z",
+        "finished_at": "2026-06-02T06:48:03.306060Z"
+    },
+    "verifier": {
+        "started_at": "2026-06-02T06:48:03.818052Z",
+        "finished_at": "2026-06-02T06:48:10.054838Z"
+    },
+    "step_results": null
+}

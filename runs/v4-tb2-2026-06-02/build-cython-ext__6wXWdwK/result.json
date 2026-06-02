@@ -1,0 +1,115 @@
+{
+    "id": "b90bb3f8-ce63-44d1-9a72-25b25126c995",
+    "task_name": "terminal-bench/build-cython-ext",
+    "trial_name": "build-cython-ext__6wXWdwK",
+    "trial_uri": "file:///home/staticpayload/tb-bench/anode-fullrun-final/2026-06-02__06-03-46/build-cython-ext__6wXWdwK",
+    "task_id": {
+        "org": "terminal-bench",
+        "name": "build-cython-ext",
+        "ref": "sha256:38e42b5662bb3c6b8610d193d5ef1b47ee3a8f4bd07eb860ceaab17e9406a368"
+    },
+    "source": "terminal-bench/terminal-bench-2",
+    "task_checksum": "e81ab63bd394abcdaa5eeb6cfa8d2fb0ee9f15230a775898bcf17f19265d729a",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "terminal-bench/build-cython-ext",
+            "ref": "sha256:38e42b5662bb3c6b8610d193d5ef1b47ee3a8f4bd07eb860ceaab17e9406a368",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench/terminal-bench-2"
+        },
+        "trial_name": "build-cython-ext__6wXWdwK",
+        "trials_dir": "anode-fullrun-final/2026-06-02__06-03-46",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": 2.0,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": null,
+            "import_path": "anode_adapter.anode_agent:Anode",
+            "model_name": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {},
+            "env": {
+                "ANODE_AUTH_JSON_PATH": "/hom****son",
+                "ANODE_CONFIG_JSON_PATH": "/home/staticpayload/.config/anode/config.json",
+                "ANODE_BINARY_PATH": "/home/staticpayload/.local/bin/anode",
+                "ANODE_AGENT_TIMEOUT_SEC": "2400"
+            },
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": false,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "env": {},
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "env": {},
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "9d45a997-1f6c-4725-8aa7-f110389bd533"
+    },
+    "agent_info": {
+        "name": "anode",
+        "version": "version dev",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": 5595371,
+        "n_cache_tokens": 1384448,
+        "n_output_tokens": 35145,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-06-02T06:42:17.439944Z",
+    "finished_at": "2026-06-02T06:58:52.461957Z",
+    "environment_setup": {
+        "started_at": "2026-06-02T06:42:17.441262Z",
+        "finished_at": "2026-06-02T06:42:19.150013Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-06-02T06:42:19.150045Z",
+        "finished_at": "2026-06-02T06:42:25.081844Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-06-02T06:42:25.081932Z",
+        "finished_at": "2026-06-02T06:58:34.975453Z"
+    },
+    "verifier": {
+        "started_at": "2026-06-02T06:58:35.398732Z",
+        "finished_at": "2026-06-02T06:58:41.068517Z"
+    },
+    "step_results": null
+}

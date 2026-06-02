@@ -1,0 +1,115 @@
+{
+    "id": "01984a9d-098a-46cb-87e5-ba5f20bc2ac2",
+    "task_name": "terminal-bench/extract-moves-from-video",
+    "trial_name": "extract-moves-from-video__BoVg4HQ",
+    "trial_uri": "file:///home/staticpayload/tb-bench/anode-fullrun-final/2026-06-02__06-03-46/extract-moves-from-video__BoVg4HQ",
+    "task_id": {
+        "org": "terminal-bench",
+        "name": "extract-moves-from-video",
+        "ref": "sha256:e15a249c82f4068634a136c0641a09feed2c12947e051e6b3c48f21699ed27c5"
+    },
+    "source": "terminal-bench/terminal-bench-2",
+    "task_checksum": "4ce580cd8bb8c7d62760e5980d0b0c2c0e8125e55aecb86169ac23dffd0cc1f8",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "terminal-bench/extract-moves-from-video",
+            "ref": "sha256:e15a249c82f4068634a136c0641a09feed2c12947e051e6b3c48f21699ed27c5",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench/terminal-bench-2"
+        },
+        "trial_name": "extract-moves-from-video__BoVg4HQ",
+        "trials_dir": "anode-fullrun-final/2026-06-02__06-03-46",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": 2.0,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": null,
+            "import_path": "anode_adapter.anode_agent:Anode",
+            "model_name": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {},
+            "env": {
+                "ANODE_AUTH_JSON_PATH": "/hom****son",
+                "ANODE_CONFIG_JSON_PATH": "/home/staticpayload/.config/anode/config.json",
+                "ANODE_BINARY_PATH": "/home/staticpayload/.local/bin/anode",
+                "ANODE_AGENT_TIMEOUT_SEC": "2400"
+            },
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": false,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "env": {},
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "env": {},
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "9d45a997-1f6c-4725-8aa7-f110389bd533"
+    },
+    "agent_info": {
+        "name": "anode",
+        "version": "version dev",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": 2389572,
+        "n_cache_tokens": 442880,
+        "n_output_tokens": 14769,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-06-02T06:48:22.780744Z",
+    "finished_at": "2026-06-02T06:56:54.371138Z",
+    "environment_setup": {
+        "started_at": "2026-06-02T06:48:22.782060Z",
+        "finished_at": "2026-06-02T06:48:24.300895Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-06-02T06:48:24.300920Z",
+        "finished_at": "2026-06-02T06:48:39.767904Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-06-02T06:48:39.768010Z",
+        "finished_at": "2026-06-02T06:56:25.228347Z"
+    },
+    "verifier": {
+        "started_at": "2026-06-02T06:56:25.701045Z",
+        "finished_at": "2026-06-02T06:56:42.930976Z"
+    },
+    "step_results": null
+}

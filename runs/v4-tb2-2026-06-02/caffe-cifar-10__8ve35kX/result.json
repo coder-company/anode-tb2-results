@@ -1,0 +1,115 @@
+{
+    "id": "70d32624-2b12-45f3-b304-e9be128ce832",
+    "task_name": "terminal-bench/caffe-cifar-10",
+    "trial_name": "caffe-cifar-10__8ve35kX",
+    "trial_uri": "file:///home/staticpayload/tb-bench/anode-fullrun-final/2026-06-02__06-03-46/caffe-cifar-10__8ve35kX",
+    "task_id": {
+        "org": "terminal-bench",
+        "name": "caffe-cifar-10",
+        "ref": "sha256:d41ec2d7249c3142f0db4f80b04a41c7e8fad1688c78ba3f5e09a7d6671d2697"
+    },
+    "source": "terminal-bench/terminal-bench-2",
+    "task_checksum": "53cce4d1ba6ad3f5c72c8b2652302d9123a026f74a74304b043db7b383ff3e27",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "terminal-bench/caffe-cifar-10",
+            "ref": "sha256:d41ec2d7249c3142f0db4f80b04a41c7e8fad1688c78ba3f5e09a7d6671d2697",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench/terminal-bench-2"
+        },
+        "trial_name": "caffe-cifar-10__8ve35kX",
+        "trials_dir": "anode-fullrun-final/2026-06-02__06-03-46",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": 2.0,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": null,
+            "import_path": "anode_adapter.anode_agent:Anode",
+            "model_name": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {},
+            "env": {
+                "ANODE_AUTH_JSON_PATH": "/hom****son",
+                "ANODE_CONFIG_JSON_PATH": "/home/staticpayload/.config/anode/config.json",
+                "ANODE_BINARY_PATH": "/home/staticpayload/.local/bin/anode",
+                "ANODE_AGENT_TIMEOUT_SEC": "2400"
+            },
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": false,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "env": {},
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "env": {},
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "9d45a997-1f6c-4725-8aa7-f110389bd533"
+    },
+    "agent_info": {
+        "name": "anode",
+        "version": "version dev",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": 4803575,
+        "n_cache_tokens": 958976,
+        "n_output_tokens": 34601,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-06-02T06:09:51.787069Z",
+    "finished_at": "2026-06-02T06:39:30.073462Z",
+    "environment_setup": {
+        "started_at": "2026-06-02T06:09:51.788187Z",
+        "finished_at": "2026-06-02T06:09:53.256379Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-06-02T06:09:53.256402Z",
+        "finished_at": "2026-06-02T06:09:59.891475Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-06-02T06:09:59.891542Z",
+        "finished_at": "2026-06-02T06:38:24.519687Z"
+    },
+    "verifier": {
+        "started_at": "2026-06-02T06:38:25.637071Z",
+        "finished_at": "2026-06-02T06:39:12.523512Z"
+    },
+    "step_results": null
+}

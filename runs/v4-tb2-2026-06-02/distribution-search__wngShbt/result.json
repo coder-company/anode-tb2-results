@@ -1,0 +1,115 @@
+{
+    "id": "0339012b-3d51-4027-9269-afe981f7140b",
+    "task_name": "terminal-bench/distribution-search",
+    "trial_name": "distribution-search__wngShbt",
+    "trial_uri": "file:///home/staticpayload/tb-bench/anode-fullrun-final/2026-06-02__06-03-46/distribution-search__wngShbt",
+    "task_id": {
+        "org": "terminal-bench",
+        "name": "distribution-search",
+        "ref": "sha256:0212a95c28e26008f035e4cf39fc45cc69a20b621ae4ef83c1a27c4a0f20ecff"
+    },
+    "source": "terminal-bench/terminal-bench-2",
+    "task_checksum": "989c4efd0873ef0d487acfd55730c67c7a43e180255bc78e90cf36ccb0b5d7d2",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "terminal-bench/distribution-search",
+            "ref": "sha256:0212a95c28e26008f035e4cf39fc45cc69a20b621ae4ef83c1a27c4a0f20ecff",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "terminal-bench/terminal-bench-2"
+        },
+        "trial_name": "distribution-search__wngShbt",
+        "trials_dir": "anode-fullrun-final/2026-06-02__06-03-46",
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": 2.0,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": null,
+            "import_path": "anode_adapter.anode_agent:Anode",
+            "model_name": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {},
+            "env": {
+                "ANODE_AUTH_JSON_PATH": "/hom****son",
+                "ANODE_CONFIG_JSON_PATH": "/home/staticpayload/.config/anode/config.json",
+                "ANODE_BINARY_PATH": "/home/staticpayload/.local/bin/anode",
+                "ANODE_AGENT_TIMEOUT_SEC": "2400"
+            },
+            "mcp_servers": []
+        },
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": false,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "env": {},
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "env": {},
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "job_id": "9d45a997-1f6c-4725-8aa7-f110389bd533"
+    },
+    "agent_info": {
+        "name": "anode",
+        "version": "version dev",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": 296825,
+        "n_cache_tokens": 111616,
+        "n_output_tokens": 5853,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-06-02T06:03:51.273309Z",
+    "finished_at": "2026-06-02T06:06:43.745559Z",
+    "environment_setup": {
+        "started_at": "2026-06-02T06:03:51.445712Z",
+        "finished_at": "2026-06-02T06:03:53.946946Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-06-02T06:03:53.946964Z",
+        "finished_at": "2026-06-02T06:04:04.138084Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-06-02T06:04:04.138142Z",
+        "finished_at": "2026-06-02T06:06:22.183443Z"
+    },
+    "verifier": {
+        "started_at": "2026-06-02T06:06:22.573768Z",
+        "finished_at": "2026-06-02T06:06:31.934605Z"
+    },
+    "step_results": null
+}

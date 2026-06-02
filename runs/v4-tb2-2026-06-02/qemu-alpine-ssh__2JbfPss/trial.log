@@ -1,0 +1,24 @@
+Running command: set -euo pipefail; if ldd --version 2>&1 | grep -qi musl || [ -f /etc/alpine-release ]; then   apk add --no-cache curl bash ripgrep ca-certificates; elif command -v apt-get >/dev/null 2>&1; then   apt-get update && apt-get install -y --no-install-recommends curl ripgrep ca-certificates; elif command -v yum >/dev/null 2>&1; then   yum install -y curl ripgrep ca-certificates; fi
+Command outputs captured
+Running command: install -m 0755 /tmp/anode-binary-upload /usr/local/bin/anode && rm -f /tmp/anode-binary-upload && /usr/local/bin/anode --version
+Command failed
+Host anode binary upload failed (Command failed (exit 1): install -m 0755 /tmp/anode-binary-upload /usr/local/bin/anode && rm -f /tmp/anode-binary-upload && /usr/local/bin/anode --version
+stdout: /usr/local/bin/anode: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.34' not found (required by /usr/local/bin/anode)
+/usr/local/bin/anode: /lib/x86_64-linux-gnu/libc.so.6: version `GLIBC_2.32' not found (required by /usr/local/bin/anode)
+
+stderr: None); falling back to network installer
+Running command: set -euo pipefail; curl -fsSL https://get.coder.company/anode.sh | sh; command -v anode >/dev/null
+Command outputs captured
+Running command: mkdir -p /tmp/anode-home /tmp/anode-home/.anode /tmp/anode-home/.config/anode /tmp/anode-secrets /logs/agent
+Command outputs captured
+Running command: install -m 0600 /tmp/anode-secrets/auth.json /tmp/anode-home/.config/anode/auth.json
+Command outputs captured
+Running command: install -m 0644 /tmp/anode-config.json /tmp/anode-home/.config/anode/config.json && rm -f /tmp/anode-config.json
+Command outputs captured
+Running command: if [ -z "${ANODE_FOUNDRY_BASEURL:-}" ]; then   GW=$(ip route 2>/dev/null | awk '/default/ { print $3; exit }');   if [ -n "$GW" ]; then export ANODE_FOUNDRY_BASEURL="http://${GW}:8318"; fi; fi; anode --max-turns 360 --profile study --approval unrestricted --stream-json --stats --archive execute -- 'Start the /app/alpine.iso image in qemu, and then start an ssh server on the alpine linux vm. When you'"'"'re done, I should be able to run `ssh -p 2222 root@localhost` with password `password123` and be dropped into a shell. On the /app/alpine.iso image, the default username is root with no password.
+' 2> /logs/agent/anode-stderr.log | tee /logs/agent/anode-stream.ndjson
+Command outputs captured
+Running command: if [ -d /tmp/anode-home/.anode ]; then   cp -R /tmp/anode-home/.anode   /logs/agent/anode-data || true; fi
+Command outputs captured
+Running command: rm -rf /tmp/anode-secrets
+Command outputs captured

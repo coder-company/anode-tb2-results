@@ -1,0 +1,111 @@
+# anode-tb2-results
+
+Public Terminal-Bench 2.0 benchmark results for **[anode](https://github.com/coder-company/anode)**, the open-source coding agent from Coder Company.
+
+These artifacts are published for transparency. The official [Terminal-Bench 2.0 leaderboard](https://huggingface.co/datasets/harborframework/terminal-bench-2-leaderboard) is currently **closed to new submissions** pending a [new submission process](https://www.tbench.ai/news/leaderboard-integrity-update) expected end of June 2026.
+
+## Headline result
+
+| Run | Pass | Fail | Err | Pass rate (of 89) |
+| --- | ---: | ---: | ---: | ---: |
+| **v4-tb2-2026-06-02** | **73** | 15 | 1 | **82.0%** |
+
+V4 is anode's best complete run on Terminal-Bench 2.0 (89 tasks). It would land approximately rank 7 on the public leaderboard if submitted (between Capy 83.1% and Codex CLI 82.2%), though it is **not eligible for the new leaderboard** because it used `--agent-timeout-multiplier 2.0` rather than the now-required `1.0`, and ran with `k=1` trial per task rather than the new minimum of `k=5`.
+
+See [`RESULTS.md`](RESULTS.md) for the full per-task PASS/FAIL/ERR table.
+
+## Methodology
+
+### Agent
+- **anode** at commit [`10d63199`](https://github.com/coder-company/anode/commit/10d63199) on `main` (engine + provider fixes for headless ask_user, HTTP/2 transient retry, Codex chatgpt-account-id headers, lean prompt with char-trap + tolerance-iteration + clean-artifacts hints)
+- Profile: `study` (defaultEffort 5, maxTurns 40, overridden to 360 in adapter)
+- Authentication: OpenAI **OAuth via ChatGPT Pro subscription** (no API key)
+
+### Model
+- `openai/gpt-5.5` via Codex Responses API
+- Reasoning effort: max (5/5)
+
+### Harness
+- [Harbor 0.13.0](https://harborframework.com) (`harbor run`)
+- Dataset: `terminal-bench/terminal-bench-2` (89 tasks)
+- Concurrency `-n 10` on a 32 GB / 8 vCPU VPS
+- `--agent-timeout-multiplier 2.0` (this is why V4 cannot be submitted to the new leaderboard)
+- `--max-turns 360` per task; per-trial agent timeout 10800s
+- Local Harbor adapter at [`anode_adapter/`](https://github.com/coder-company/anode/tree/main/scripts/anode_adapter) (not in this repo)
+
+### Reproduction
+```bash
+# 1. Install anode (commit 10d63199 or later)
+go install github.com/coder-company/anode/cmd/anode@10d63199
+
+# 2. Authenticate with a ChatGPT Pro account
+anode login
+
+# 3. Install harbor
+uv tool install harbor==0.13.0
+
+# 4. Run the bench (this exact invocation produced V4)
+PYTHONPATH=. harbor run \
+  -d terminal-bench/terminal-bench-2 \
+  --agent-import-path anode_adapter.anode_agent:Anode \
+  -n 10 --agent-timeout-multiplier 2.0 \
+  --jobs-dir anode-fullrun \
+  --ae ANODE_AUTH_JSON_PATH=$HOME/.config/anode/auth.json \
+  --ae ANODE_CONFIG_JSON_PATH=$HOME/.config/anode/config.json \
+  --ae ANODE_BINARY_PATH=$(which anode) \
+  --ae ANODE_AGENT_TIMEOUT_SEC=10800 \
+  -y
+```
+
+## Why we are not on the leaderboard
+
+The public Terminal-Bench 2.0 leaderboard is **closed** as of this writing. From [the leaderboard repo front page](https://huggingface.co/datasets/harborframework/terminal-bench-2-leaderboard):
+
+> **SUBMISSIONS CLOSED.** All PRs opened before May 14th have been reviewed and merged if valid. […] We are working on a new submission process for the Terminal Bench 2.0 Leaderboard. Check back by end of June for an update.
+
+The new submission process announced in [Leaderboard Integrity Update](https://www.tbench.ai/news/leaderboard-integrity-update) will require:
+
+1. `timeout_multiplier == 1.0` — V4 used 2.0
+2. Minimum `k=5` trials per task — V4 ran `k=1`
+3. ATIF trajectories for all passing trials — V4 has them (not included in this repo, see disclaimer below)
+4. No reward hacking (no internet access to the task corpus)
+5. Cheating-detection judge over all passes
+
+When the new process opens, we plan to run a fully compliant submission. This repository is published in the interim to share what we have.
+
+## What is in this repository
+
+```
+runs/
+  v4-tb2-2026-06-02/                # 73/89 = 82.0%
+    result.json                     # Harbor aggregate result for the run
+    <task>__<trialid>/
+      result.json                   # per-trial result (status, reward, timings)
+      config.json                   # per-trial config (Harbor task config + agent CLI flags)
+      trial.log                     # Harbor trial-level log
+      exception.txt                 # present iff the trial errored
+      verifier/
+        reward.txt                  # final reward (0.0 or 1.0)
+        ctrf.json                   # CTRF test-results JSON from the verifier
+        test-stdout.txt             # verifier stdout
+
+RESULTS.md                          # per-task PASS/FAIL/ERR table
+README.md                           # this file
+```
+
+## What is NOT in this repository
+
+- **Agent trajectories** (`agent/trajectory.json`, `agent/anode-stream.ndjson`, `agent/anode-stderr.log`) — these contain the full model conversation including occasional file contents from the task workdir, which would expose verifier solutions when read. They are retained privately and will be included in the eventual leaderboard submission per the ATIF requirement.
+- **Authentication credentials** — no OAuth tokens, no API keys, no account UUIDs are present. The repository has been scanned for `Bearer ey…`, `sk-…`, JWT-shaped tokens, `access_token`, `refresh_token`, `client_secret`, and the user's `chatgpt-account-id` — all clean.
+- **Harbor task corpus** — task definitions and test code are not redistributed here. See [harborframework/terminal-bench-2.0](https://huggingface.co/datasets/harborframework/terminal-bench-2.0) for the upstream dataset.
+
+## License
+
+This repository contains only Coder Company-owned benchmark output artifacts (Harbor result JSON, verifier reward and test output) and the README/results analysis. It is published under [MIT](LICENSE).
+
+Terminal-Bench is © its authors and licensed separately at [github.com/laude-institute/terminal-bench](https://github.com/laude-institute/terminal-bench).
+
+## Contact
+
+- Agent source and issues: [github.com/coder-company/anode](https://github.com/coder-company/anode)
+- Bench questions: open an issue on this repository
