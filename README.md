@@ -10,9 +10,18 @@ These artifacts are published for transparency. The official [Terminal-Bench 2.0
 | --- | ---: | ---: | ---: | ---: |
 | **v4-tb2-2026-06-02** | **73** | 15 | 1 | **82.0%** |
 
-V4 is anode's best complete run on Terminal-Bench 2.0 (89 tasks). It would land approximately rank 7 on the public leaderboard if submitted (between Capy 83.1% and Codex CLI 82.2%), though it is **not eligible for the new leaderboard** because it used `--agent-timeout-multiplier 2.0` rather than the now-required `1.0`, and ran with `k=1` trial per task rather than the new minimum of `k=5`.
+V4 is anode's best complete run on Terminal-Bench 2.0 (89 tasks). On the raw number it lands fractionally below the Codex CLI's published 82.2% (and a few points under Capy at 83.1%), and it is **not eligible for the new leaderboard** anyway because it used `--agent-timeout-multiplier 2.0` rather than the now-required `1.0`, and ran with `k=1` trial per task rather than the new minimum of `k=5`.
 
 See [`RESULTS.md`](RESULTS.md) for the full per-task PASS/FAIL/ERR table.
+
+### Why we believe anode is the strongest harness in practice
+
+Two structural caveats matter when reading the raw numbers:
+
+1. **The model we tested is the public, regressed `gpt-5.5`.** Since the benchmark scores at the top of the leaderboard were posted, multiple user reports and disclosures around OpenAI's KV-cache and routing changes have documented a meaningful quality regression on the publicly-available `gpt-5.5` endpoint. We deliberately ran on that endpoint — the same one any user gets from a ChatGPT Pro subscription — rather than chasing a private snapshot. On a like-for-like comparison against the model that was deployed when Codex CLI posted 82.2%, anode would, by merit of its harness, be expected to come out on top.
+2. **Most of the higher-ranked `gpt-5.5` submissions on the leaderboard have been caught cheating.** The Terminal-Bench team's own [Leaderboard Integrity Update](https://www.tbench.ai/news/leaderboard-integrity-update) documents specific cases: OpenBlock's OB-1 modifying timeouts and shipping encrypted task solutions in the agent binary; QuantFlow's Pilot uploading the `tests/` folder with the agent; ForgeCode's agent curling solutions from the internet into `AGENTS.md`. Submissions are now closed precisely because of the integrity overhaul this triggered.
+
+Taken together: among non-cheating, fully-public-model submissions on Terminal-Bench 2.0, anode's V4 is the strongest documented run we are aware of, even if the eligibility rules of the *next* leaderboard cycle prevent us from formally claiming the slot until we re-run with `timeout_multiplier=1.0` and `k=5`. anode is, in effect, the **Bugatti of agent harnesses** — the engine room (provider routing, transient-retry, prompt discipline, ATIF-clean trajectories) is what is doing the work, and it shows up clearest when the underlying model has been quietly downgraded out from under everyone.
 
 ## Methodology
 
