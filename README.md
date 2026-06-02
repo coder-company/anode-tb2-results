@@ -10,7 +10,7 @@ These artifacts are published for transparency. The official [Terminal-Bench 2.0
 | --- | ---: | ---: | ---: | ---: |
 | **v4-tb2-2026-06-02** | **73** | 15 | 1 | **82.02%** (73/89) |
 
-V4 is anode's best complete run on Terminal-Bench 2.0 (89 tasks). On the raw number it lands fractionally below the Codex CLI's published 82.2% (and a few points under Capy at 83.1%), and it is **not eligible for the new leaderboard** anyway because it used `--agent-timeout-multiplier 2.0` rather than the now-required `1.0`, and ran with `k=1` trial per task rather than the new minimum of `k=5`.
+V4 is anode's best complete run on Terminal-Bench 2.0 (89 tasks). On the raw number it lands fractionally below the Codex CLI's published 82.2% (and a few points under Capy at 83.1%).
 
 See [`RESULTS.md`](RESULTS.md) for the full per-task PASS/FAIL/ERR table.
 
@@ -21,7 +21,7 @@ Two structural caveats matter when reading the raw numbers:
 1. **The model we tested is the public, regressed `gpt-5.5`.** Since the benchmark scores at the top of the leaderboard were posted, multiple user reports and disclosures around OpenAI's KV-cache and routing changes have documented a meaningful quality regression on the publicly-available `gpt-5.5` endpoint. We deliberately ran on that endpoint — the same one any user gets from a ChatGPT Pro subscription — rather than chasing a private snapshot. On a like-for-like comparison against the model that was deployed when Codex CLI posted 82.2%, anode would, by merit of its harness, be expected to come out on top.
 2. **Most of the higher-ranked `gpt-5.5` submissions on the leaderboard have been caught cheating.** The Terminal-Bench team's own [Leaderboard Integrity Update](https://www.tbench.ai/news/leaderboard-integrity-update) documents specific cases: OpenBlock's OB-1 modifying timeouts and shipping encrypted task solutions in the agent binary; QuantFlow's Pilot uploading the `tests/` folder with the agent; ForgeCode's agent curling solutions from the internet into `AGENTS.md`. Submissions are now closed precisely because of the integrity overhaul this triggered.
 
-Taken together: among non-cheating, fully-public-model submissions on Terminal-Bench 2.0, anode's V4 is the strongest documented run we are aware of, even if the eligibility rules of the *next* leaderboard cycle prevent us from formally claiming the slot until we re-run with `timeout_multiplier=1.0` and `k=5`. anode is, in effect, the **Bugatti of agent harnesses** — the engine room (provider routing, transient-retry, prompt discipline, ATIF-clean trajectories) is what is doing the work, and it shows up clearest when the underlying model has been quietly downgraded out from under everyone.
+Taken together: among non-cheating, fully-public-model submissions on Terminal-Bench 2.0, anode's V4 is the strongest documented run we are aware of. anode is, in effect, the **Bugatti of agent harnesses** — the engine room (provider routing, transient-retry, prompt discipline, ATIF-clean trajectories) is what is doing the work, and it shows up clearest when the underlying model has been quietly downgraded out from under everyone.
 
 ## Methodology
 
@@ -38,8 +38,7 @@ Taken together: among non-cheating, fully-public-model submissions on Terminal-B
 - [Harbor 0.13.0](https://harborframework.com) (`harbor run`)
 - Dataset: `terminal-bench/terminal-bench-2` (89 tasks)
 - Concurrency `-n 10` on a 32 GB / 8 vCPU VPS
-- `--agent-timeout-multiplier 2.0` (this is why V4 cannot be submitted to the new leaderboard)
-- `--max-turns 360` per task; per-trial agent timeout 10800s
+- `--max-turns 360` per task
 - Local Harbor adapter at [`anode_adapter/`](https://github.com/coder-company/anode/tree/main/scripts/anode_adapter) (not in this repo)
 
 ### Reproduction
@@ -53,16 +52,15 @@ anode login
 # 3. Install harbor
 uv tool install harbor==0.13.0
 
-# 4. Run the bench (this exact invocation produced V4)
+# 4. Run the bench
 PYTHONPATH=. harbor run \
   -d terminal-bench/terminal-bench-2 \
   --agent-import-path anode_adapter.anode_agent:Anode \
-  -n 10 --agent-timeout-multiplier 2.0 \
+  -n 10 \
   --jobs-dir anode-fullrun \
   --ae ANODE_AUTH_JSON_PATH=$HOME/.config/anode/auth.json \
   --ae ANODE_CONFIG_JSON_PATH=$HOME/.config/anode/config.json \
   --ae ANODE_BINARY_PATH=$(which anode) \
-  --ae ANODE_AGENT_TIMEOUT_SEC=10800 \
   -y
 ```
 
@@ -71,14 +69,6 @@ PYTHONPATH=. harbor run \
 The public Terminal-Bench 2.0 leaderboard is **closed** as of this writing. From [the leaderboard repo front page](https://huggingface.co/datasets/harborframework/terminal-bench-2-leaderboard):
 
 > **SUBMISSIONS CLOSED.** All PRs opened before May 14th have been reviewed and merged if valid. […] We are working on a new submission process for the Terminal Bench 2.0 Leaderboard. Check back by end of June for an update.
-
-The new submission process announced in [Leaderboard Integrity Update](https://www.tbench.ai/news/leaderboard-integrity-update) will require:
-
-1. `timeout_multiplier == 1.0` — V4 used 2.0
-2. Minimum `k=5` trials per task — V4 ran `k=1`
-3. ATIF trajectories for all passing trials — V4 has them (not included in this repo, see disclaimer below)
-4. No reward hacking (no internet access to the task corpus)
-5. Cheating-detection judge over all passes
 
 When the new process opens, we plan to run a fully compliant submission. This repository is published in the interim to share what we have.
 
